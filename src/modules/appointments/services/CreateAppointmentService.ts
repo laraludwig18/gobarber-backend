@@ -20,9 +20,7 @@ class CreateAppointmentService {
   public async execute({ date, provider_id }: IRequest): Promise<Apppointment> {
     const appointmentDate = startOfHour(date);
 
-    const findAppointmentInSameDate = await this.appointmentsRepository.findByDate(
-      appointmentDate,
-    );
+    const findAppointmentInSameDate = await this.appointmentsRepository.findByDate(appointmentDate);
 
     if (findAppointmentInSameDate) {
       throw new AppError('This appointment is already booked.');
