@@ -20,11 +20,10 @@ Backend do app para agendamento de serviços de barbearia
           - [repositories] Pasta contendo os arquivos de implementação dos métodos para acesso ao banco
       - [providers] Pasta contendo os provedores de serviço que são dependências externas do domínio de usuário
         - [HashProvider] Pasta contendo os provedores do serviço de hash de senha
-          - [fakes] Pasta contendo o mock das implementações dos provedores
-          - [implementations] Pasta contendo as implementaçes dos provedores
+          - [fakes] Pasta contendo o mock da implementação independente do provedor
+          - [implementations] Pasta contendo as implementações dos provedores
           - [models] Pasta contendo a interface em comum entre os provedores
         - index.ts Arquivo que faz a injeção das dependências dos provedores
-        - [routes] Pasta contendo as rotas
       - [repositories] Pasta contendo as interfaces dos métodos para acesso ao banco
         - [fakes] Pasta contendo o mock da implementação do repositório
       - [services] Pasta contendo as regras de negócio relacionadas ao domínio de usuário
