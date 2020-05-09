@@ -14,7 +14,7 @@ Backend do app para agendamento de serviços de barbearia
         - [http] Pasta contendo as implementações que se referem a camada http
           - [controllers] Pasta contendo os arquivos de controllers
           - [middlewares] Pasta contendo os middlewares
-          - [routes] Pasta contendo as rotas*
+          - [routes] Pasta contendo as rotas
         - [typeorm] Pasta contendo as implementações ligadas ao typeorm
           - [entities] Pasta contendo as entidades do typeorm
           - [repositories] Pasta contendo os arquivos de implementação dos métodos para acesso ao banco
