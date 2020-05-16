@@ -11,12 +11,12 @@ export default class AppointmentsController {
 
     const parsedDate = parseISO(date);
 
-    // AppointmentsRepository dependency injection
     const createAppointment = container.resolve(CreateAppointmentService);
 
     const appointment = await createAppointment.execute({
-      date: parsedDate,
       provider_id,
+      date: parsedDate,
+      user_id: req.user.id,
     });
 
     return res.json(appointment);

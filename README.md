@@ -45,7 +45,7 @@ Backend do app para agendamento de serviços de barbearia
       - [typeorm]
         - [migrations] Pasta contendo os arquivos de versionamento do typeorm
         - index.ts Arquivo de conexão do typeorm
-  
+
 ## Inicialização
 
 Criar banco de dados postgres:
@@ -68,3 +68,11 @@ Rodar projeto:
 ```
 yarn dev:server
 ```
+
+## TODO
+
+- [] Remover retorno da senha ao buscar um usuário/provider
+- [] Documentação com swagger
+- [] Separar assets dos testes
+- [] Melhorar testes do arquivo ListProviderMonthAvailabilityService e ListProviderDayAvailabilityService
+- [] Melhorar tratamento dos horários disponíveis para agendamento em um dia
