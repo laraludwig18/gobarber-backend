@@ -78,3 +78,6 @@ yarn dev:server
 - [] Separar assets dos testes
 - [] Melhorar testes do arquivo ListProviderMonthAvailabilityService e ListProviderDayAvailabilityService
 - [] Melhorar tratamento dos horários disponíveis para agendamento em um dia
+- [] Melhorar mensagens do Joi
+- [] Validar tamanho e tipo da imagem do avatar
+
