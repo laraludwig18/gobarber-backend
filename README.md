@@ -48,11 +48,13 @@ Backend do app para agendamento de serviços de barbearia
 
 ## Inicialização
 
-Criar banco de dados postgres:
+Criar banco postgres:
 ```
-docker run --name gobarber -e POSTGRES_PASSWORD=suasenha -p 5432:5432 -d postgres
+docker run --name postgres-gobarber -e POSTGRES_PASSWORD=suasenha -p 5432:5432 -d postgres
 ```
-Iniciar banco postgres:
+Criar banco mongo:
+```
+docker run --name mongo-gobarber -p 27017:27017 -d -t mongo
 ```
 docker start gobarber
 ```
