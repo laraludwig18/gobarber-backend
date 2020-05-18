@@ -56,9 +56,7 @@ Criar banco mongo:
 ```
 docker run --name mongo-gobarber -p 27017:27017 -d -t mongo
 ```
-docker start gobarber
-```
-Migrar tabelas para postgres:
+Migrar tabelas para o postgres:
 ```
 yarn typeorm migration:run
 ```
