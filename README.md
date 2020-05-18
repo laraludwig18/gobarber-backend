@@ -78,4 +78,6 @@ yarn dev:server
 - [] Melhorar tratamento dos horários disponíveis para agendamento em um dia
 - [] Melhorar mensagens do Joi
 - [] Validar tamanho e tipo da imagem do avatar
+- [] Enviar emails via Amazon SES
+- [] Refatorar arquivo que chama providers
 

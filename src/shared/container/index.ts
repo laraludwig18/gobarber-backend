@@ -15,7 +15,6 @@ import IUserTokensRepository from '@modules/users/repositories/IUserTokensReposi
 import NotificationsRepository from '@modules/notifications/infra/typeorm/repositories/NotificationsRepository';
 import INotificationsRepository from '@modules/notifications/repositories/INotificationsRepository';
 
-// Singleton: only one instance
 container.registerSingleton<IAppointmentsRepository>(
   'AppointmentsRepository',
   AppointmentsRepository,
