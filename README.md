@@ -56,6 +56,10 @@ Criar banco mongo:
 ```
 docker run --name mongo-gobarber -p 27017:27017 -d -t mongo
 ```
+Criar banco redis:
+```
+docker run --name redis-gobarber -p 6379:6379 -d -t redis:alpine
+```
 Migrar tabelas para o postgres:
 ```
 yarn typeorm migration:run
@@ -71,13 +75,18 @@ yarn dev:server
 
 ## TODO
 
-- [] Remover retorno da senha ao buscar um usuário/provider
-- [] Documentação com swagger
-- [] Separar assets dos testes
-- [] Melhorar testes do arquivo ListProviderMonthAvailabilityService e ListProviderDayAvailabilityService
-- [] Melhorar tratamento dos horários disponíveis para agendamento em um dia
-- [] Melhorar mensagens do Joi
-- [] Validar tamanho e tipo da imagem do avatar
-- [] Enviar emails via Amazon SES
-- [] Refatorar arquivo que chama providers
+- [ ] Invalidar cache ao alterar perfil e avatar
+- [ ] Remover retorno da senha ao buscar um usuário/provider
+- [ ] Adicionar docker compose para subir ambiente local
+- [ ] Melhorar testes do arquivo ListProviderMonthAvailabilityService e ListProviderDayAvailabilityService
+- [ ] Melhorar tratamento dos horários disponíveis para agendamento em um dia
+- [ ] Melhorar mensagens do Joi
+- [ ] Validar tamanho e tipo da imagem do avatar
+- [ ] Isolar lib jsonwebtoken do serviço de autenticação de usuário
+- [ ] Refatorar arquivo que chama providers
+- [ ] Separar assets dos testes
+- [ ] Rever arquivos do coverage report
+- [ ] Documentação com swagger
+- [ ] Enviar emails via Amazon SES
+
 
