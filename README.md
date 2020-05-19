@@ -75,17 +75,16 @@ yarn dev:server
 
 ## TODO
 
+- [x] Remover retorno da senha ao buscar um usuário/provider
 - [ ] Invalidar cache ao alterar perfil e avatar
-- [ ] Remover retorno da senha ao buscar um usuário/provider
 - [ ] Adicionar docker compose para subir ambiente local
-- [ ] Melhorar testes do arquivo ListProviderMonthAvailabilityService e ListProviderDayAvailabilityService
-- [ ] Melhorar tratamento dos horários disponíveis para agendamento em um dia
 - [ ] Melhorar mensagens do Joi
 - [ ] Validar tamanho e tipo da imagem do avatar
 - [ ] Isolar lib jsonwebtoken do serviço de autenticação de usuário
 - [ ] Refatorar arquivo que chama providers
 - [ ] Separar assets dos testes
 - [ ] Rever arquivos do coverage report
+- [ ] Melhorar tratamento dos horários disponíveis para agendamento em um dia
 - [ ] Documentação com swagger
 - [ ] Enviar emails via Amazon SES
 
