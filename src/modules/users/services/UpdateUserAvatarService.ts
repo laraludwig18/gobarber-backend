@@ -3,6 +3,7 @@ import { injectable, inject } from 'tsyringe';
 import AppError from '@shared/errors/AppError';
 
 import IStorageProvider from '@shared/container/providers/StorageProvider/models/IStorageProvider';
+import ICacheProvider from '@shared/container/providers/CacheProvider/models/ICacheProvider';
 import User from '../infra/typeorm/entities/User';
 
 import IUsersRepository from '../repositories/IUsersRepository';
@@ -20,6 +21,9 @@ class UpdateUserAvatarService {
 
     @inject('StorageProvider')
     private storageProvider: IStorageProvider,
+
+    @inject('CacheProvider')
+    private cacheProvider: ICacheProvider,
   ) {}
 
   public async execute({ user_id, avatarFilename }: IRequest): Promise<User> {
@@ -38,6 +42,8 @@ class UpdateUserAvatarService {
     Object.assign(user, { avatar: filename });
 
     await this.usersRepository.save(user);
+
+    this.cacheProvider.invalidatePrefix('providers-list');
 
     return user;
   }

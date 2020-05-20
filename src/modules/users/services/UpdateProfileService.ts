@@ -2,6 +2,7 @@ import { injectable, inject } from 'tsyringe';
 
 import AppError from '@shared/errors/AppError';
 
+import ICacheProvider from '@shared/container/providers/CacheProvider/models/ICacheProvider';
 import User from '../infra/typeorm/entities/User';
 
 import IUsersRepository from '../repositories/IUsersRepository';
@@ -23,6 +24,9 @@ class UpdateProfileService {
 
     @inject('HashProvider')
     private hashProvider: IHashProvider,
+
+    @inject('CacheProvider')
+    private cacheProvider: ICacheProvider,
   ) {}
 
   public async execute({ user_id, name, email, password, oldPassword }: IRequest): Promise<User> {
@@ -36,6 +40,10 @@ class UpdateProfileService {
 
     if (userWithUpdatedEmail && userWithUpdatedEmail.id !== user_id) {
       throw new AppError('Email already in use.');
+    }
+
+    if (user.name !== name || user.email !== email) {
+      this.cacheProvider.invalidatePrefix('providers-list');
     }
 
     Object.assign(user, { name, email });

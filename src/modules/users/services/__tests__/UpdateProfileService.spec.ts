@@ -1,6 +1,7 @@
 import AppError from '@shared/errors/AppError';
 
 import FakeHashProvider from '@modules/users/providers/HashProvider/fakes/FakeHashProvider';
+import FakeCacheProvider from '@shared/container/providers/CacheProvider/fakes/FakeCacheProvider';
 import FakeUsersRepository from '../../repositories/fakes/FakeUsersRepository';
 import UpdateProfileService from '../UpdateProfileService';
 
@@ -12,14 +13,20 @@ const newUser = {
 
 let fakeUsersRepository: FakeUsersRepository;
 let fakeHashProvider: FakeHashProvider;
+let fakeCacheProvider: FakeCacheProvider;
 let updateProfile: UpdateProfileService;
 
 describe('UpdateProfile', () => {
   beforeEach(() => {
     fakeUsersRepository = new FakeUsersRepository();
     fakeHashProvider = new FakeHashProvider();
+    fakeCacheProvider = new FakeCacheProvider();
 
-    updateProfile = new UpdateProfileService(fakeUsersRepository, fakeHashProvider);
+    updateProfile = new UpdateProfileService(
+      fakeUsersRepository,
+      fakeHashProvider,
+      fakeCacheProvider,
+    );
   });
 
   it('should be able to update the profile', async () => {

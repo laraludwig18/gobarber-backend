@@ -1,6 +1,7 @@
 import AppError from '@shared/errors/AppError';
 
 import FakeStorageProvider from '@shared/container/providers/StorageProvider/fakes/FakeDiskStorageProvider';
+import FakeCacheProvider from '@shared/container/providers/CacheProvider/fakes/FakeCacheProvider';
 import FakeUsersRepository from '../../repositories/fakes/FakeUsersRepository';
 import UpdateUserAvatarService from '../UpdateUserAvatarService';
 
@@ -12,14 +13,20 @@ const newUser = {
 
 let fakeUsersRepository: FakeUsersRepository;
 let fakeStorageProvider: FakeStorageProvider;
+let fakeCacheProvider: FakeCacheProvider;
 let updateUserAvatar: UpdateUserAvatarService;
 
 describe('UpdateUserAvatar', () => {
   beforeEach(() => {
     fakeUsersRepository = new FakeUsersRepository();
     fakeStorageProvider = new FakeStorageProvider();
+    fakeCacheProvider = new FakeCacheProvider();
 
-    updateUserAvatar = new UpdateUserAvatarService(fakeUsersRepository, fakeStorageProvider);
+    updateUserAvatar = new UpdateUserAvatarService(
+      fakeUsersRepository,
+      fakeStorageProvider,
+      fakeCacheProvider,
+    );
   });
 
   it('should be able to update user avatar', async () => {
