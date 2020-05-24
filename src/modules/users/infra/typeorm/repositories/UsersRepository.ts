@@ -1,5 +1,4 @@
 import { getRepository, Repository, Not } from 'typeorm';
-import { classToClass } from 'class-transformer';
 
 import IUsersRepository from '@modules/users/repositories/IUsersRepository';
 import ICreateUserDTO from '@modules/users/dtos/ICreateUserDTO';
@@ -14,20 +13,15 @@ class UsersRepository implements IUsersRepository {
     this.ormRepository = getRepository(User);
   }
 
-  public async findAllProviders({ exceptUserId }: IFindAllProvidersDTO): Promise<User[]> {
-    let providers: User[];
-
+  public findAllProviders({ exceptUserId }: IFindAllProvidersDTO): Promise<User[]> {
     if (exceptUserId) {
-      providers = await this.ormRepository.find({
+      return this.ormRepository.find({
         where: {
           id: Not(exceptUserId),
         },
       });
-    } else {
-      providers = await this.ormRepository.find();
     }
-
-    return providers.map(provider => classToClass(provider));
+    return this.ormRepository.find();
   }
 
   public findById(id: string): Promise<User | undefined> {
