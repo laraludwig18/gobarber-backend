@@ -1,9 +1,13 @@
 {
   "compilerOptions": {
-    "target": "es5",
+    "target": "es2017",
     "module": "commonjs",
     "outDir": "./dist",
     "rootDir": "./src",
+    "typeRoots": [
+      "./node_modules/@types",
+      "./src/@types"
+    ],
     "strict": true,
     "strictPropertyInitialization": false,
     "baseUrl": "./src",
@@ -16,6 +20,12 @@
     "experimentalDecorators": true,
     "emitDecoratorMetadata": true,
     "forceConsistentCasingInFileNames": true,
-    "allowJs": true
-  }
+    "allowJs": true,
+    "lib": ["es6"],
+    "removeComments": true,
+    "resolveJsonModule": true
+  },
+  "include": [
+    "src/**/*"
+  ]
 }
