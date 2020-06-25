@@ -78,14 +78,13 @@ yarn dev:server
 - [x] Remover retorno da senha ao buscar um usuário
 - [x] Invalidar cache ao alterar perfil e avatar
 - [x] Adicionar docker compose para subir ambiente local
+- [x] Rever arquivos do coverage report
 - [ ] Validar tamanho e tipo da imagem do avatar
 - [ ] Isolar lib jsonwebtoken do serviço de autenticação de usuário
 - [ ] Refatorar arquivo que chama providers
 - [ ] Separar assets dos testes
-- [ ] Rever arquivos do coverage report
 - [ ] Melhorar tratamento dos horários disponíveis para agendamento em um dia
 - [ ] Melhorar mensagens do Joi
 - [ ] Documentação com swagger
-- [ ] Enviar emails via Amazon SES
 
 
