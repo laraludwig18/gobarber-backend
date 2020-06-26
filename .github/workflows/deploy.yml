@@ -32,7 +32,7 @@ jobs:
     - name: Coveralls
       uses: coverallsapp/github-action@master
       with:
-        github-token: GITHUB_TOKEN
+        github-token: ${{ secrets.GITHUB_TOKEN }}
     
     - name: Run build
       run: yarn build
