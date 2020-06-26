@@ -23,22 +23,43 @@ jobs:
     - name: Run build
       run: yarn build
     
-    - name: Copy dist folder to Digital Ocean
+    - name: Copy project folder to Digital Ocean
       uses: appleboy/scp-action@master
       with:
         host: ${{ secrets.SSH_HOST }}
         username: ${{ secrets.SSH_USER }}
         port: ${{ secrets.SSH_PORT }}
         key: ${{ secrets.SSH_KEY }}   
-        source: "dist"
-        target: "test"
+        source: ".,!node_modules"
+        target: "~/app/gobarber-api"
       
-    # Replace the existing code in the dist folder with the new code
-    
-    # Install dependencies into Digital Ocean project folder
-    
-    # Run migrations
-    
-    # Restart Node server
-    
-    
+    - name: Install dependencies into Digital Ocean project folder
+      uses: appleboy/ssh-action@master
+      with:
+        host: ${{ secrets.SSH_HOST }}
+        username: ${{ secrets.SSH_USER }}
+        port: ${{ secrets.SSH_PORT }}
+        key: ${{ secrets.SSH_KEY }} 
+        script: |
+          cd ~/app/gobarber-api 
+          yarn
+          
+    - name: Run migrations
+      uses: appleboy/ssh-action@master
+      with:
+        host: ${{ secrets.SSH_HOST }}
+        username: ${{ secrets.SSH_USER }}
+        port: ${{ secrets.SSH_PORT }}
+        key: ${{ secrets.SSH_KEY }} 
+        script: |
+          cd ~/app/gobarber-api 
+          ./node_modules/.bin/typeorm migration:run
+          
+    - name: Restart node server
+      uses: appleboy/ssh-action@master
+      with:
+        host: ${{ secrets.SSH_HOST }}
+        username: ${{ secrets.SSH_USER }}
+        port: ${{ secrets.SSH_PORT }}
+        key: ${{ secrets.SSH_KEY }} 
+        script: pm2 restart gobarber-api
