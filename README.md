@@ -2,6 +2,9 @@
 
 Backend do app para agendamento de serviços de barbearia
 
+![CI](https://github.com/laraludwig18/gobarber-api/workflows/CI/badge.svg?branch=master)
+[![Coverage Status](https://coveralls.io/repos/github/laraludwig18/gobarber-api/badge.svg?branch=ci-test)](https://coveralls.io/github/laraludwig18/gobarber-api?branch=ci-test)
+
 ## Estrutura do projeto
 
 * [src]
